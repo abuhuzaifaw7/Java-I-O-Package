@@ -194,4 +194,78 @@ public class FileClassDemo {
 | `canRead()`, `canWrite()` | Checks read/write permissions                  |
 | `renameTo(File dest)`   | Renames or moves the file                        |
 
+
+<br><br>
+### 2. **File Class Methods in Java**
+<br>
 The `File` class is an essential part of file management in Java, allowing developers to easily interact with and manage files and directories within the file system.
+
+
+In Java, the `File` class in the `java.io` package provides several useful methods for working with files and directories. Here’s a list of commonly used `File` class methods for file and directory operations, specifically for listing files:
+
+### 1. `list()`
+- **Description**: Returns an array of strings representing the names of the files and directories in the specified directory.
+- **Usage**:
+  ```java
+  File directory = new File("path/to/directory");
+  String[] files = directory.list();
+  if (files != null) {
+      for (String fileName : files) {
+          System.out.println(fileName);
+      }
+  }
+  ```
+
+### 2. `listFiles()`
+- **Description**: Returns an array of `File` objects representing the files and directories in the specified directory.
+- **Usage**:
+  ```java
+  File directory = new File("path/to/directory");
+  File[] files = directory.listFiles();
+  if (files != null) {
+      for (File file : files) {
+          System.out.println(file.getName());
+      }
+  }
+  ```
+
+### 3. `list(FilenameFilter filter)`
+- **Description**: Returns an array of strings of the names of files and directories that satisfy the specified filter.
+- **Usage**:
+  ```java
+  File directory = new File("path/to/directory");
+  String[] files = directory.list((dir, name) -> name.endsWith(".txt"));
+  if (files != null) {
+      for (String fileName : files) {
+          System.out.println(fileName);
+      }
+  }
+  ```
+
+### 4. `listFiles(FilenameFilter filter)`
+- **Description**: Returns an array of `File` objects of the files and directories in the directory that satisfy the specified filter.
+- **Usage**:
+  ```java
+  File directory = new File("path/to/directory");
+  File[] files = directory.listFiles((dir, name) -> name.endsWith(".txt"));
+  if (files != null) {
+      for (File file : files) {
+          System.out.println(file.getName());
+      }
+  }
+  ```
+
+### 5. `listFiles(FileFilter filter)`
+- **Description**: Returns an array of `File` objects representing files and directories that match a given `FileFilter`.
+- **Usage**:
+  ```java
+  File directory = new File("path/to/directory");
+  File[] files = directory.listFiles(file -> file.isFile() && file.getName().endsWith(".txt"));
+  if (files != null) {
+      for (File file : files) {
+          System.out.println(file.getName());
+      }
+  }
+  ```
+
+These methods are essential for file and directory management in Java, allowing you to filter files based on custom conditions, making file handling more flexible and efficient.
