@@ -196,7 +196,7 @@ public class FileClassDemo {
 
 
 <br><br>
-### 2. **File Class Methods in Java**
+## 2. **File Class Methods in Java**
 <br>
 The `File` class is an essential part of file management in Java, allowing developers to easily interact with and manage files and directories within the file system.
 
